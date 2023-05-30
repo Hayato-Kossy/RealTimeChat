@@ -2,7 +2,10 @@ source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.1.4"
-
+# Gemfile
+gem 'devise'
+gem 'bootstrap', '~> 4.6.0'
+gem 'font-awesome-sass', '~> 5.15'
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
 
