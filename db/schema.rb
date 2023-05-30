@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_30_055018) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_30_085519) do
   create_table "chat_rooms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -21,6 +21,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_055018) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "room_id"
+    t.index ["room_id"], name: "index_messages_on_room_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
   end
 
   create_table "user_rooms", force: :cascade do |t|
@@ -47,6 +55,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_30_055018) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "messages", "rooms"
   add_foreign_key "user_rooms", "chat_rooms"
   add_foreign_key "user_rooms", "users"
 end

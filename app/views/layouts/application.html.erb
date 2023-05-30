@@ -16,7 +16,7 @@
       <div class="navbar-brand">ChatApp</div>
       <% if user_signed_in? %>
         <div>
-          <%= link_to "一覧へ", posts_path , class: "btn btn-outline-info" %>
+          <%= link_to "一覧へ", rooms_path , class: "btn btn-outline-info" %>
           <%= link_to "サインアウト", destroy_user_session_path, class: "btn btn-outline-danger", data: { turbo_method: :delete ,confirm: '本当に削除しますか？' }%>
         </div>
       <% else %>
