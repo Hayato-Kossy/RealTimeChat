@@ -1,6 +1,8 @@
 import consumer from "channels/consumer"
-
-const appRoom = consumer.subscriptions.create("RoomChannel", {
+const roomId = "4"
+// document.getElementById('room-id').dataset.roomId;
+console.log(roomId)
+const appRoom = consumer.subscriptions.create({channel: "RoomChannel", room: roomId}, {
   connected() {
     // Called when the subscription is ready for use on the server
   },
@@ -13,6 +15,7 @@ const appRoom = consumer.subscriptions.create("RoomChannel", {
   const messages = document.getElementById('messages');
   messages.insertAdjacentHTML('beforeend', `<div class="message"><p>${data['message']}</p></div>`);
     console.log(data);
+    // $('#chats').append('<p>' + data.message + '</p>');
   },
 
   speak: function(message) {

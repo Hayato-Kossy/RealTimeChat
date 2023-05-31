@@ -1,5 +1,9 @@
 <h1>Chat room</h1>
-
+<%
+=begin%>
+ <div id="room-id" data-roomId="<%= @room.id %>"></div> 
+<%
+=end%>
 <div id="messages">
 <%= render @messages %>
 </div>
